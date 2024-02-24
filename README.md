@@ -21,7 +21,7 @@ Welcome to the Car Rental Management System repository! This web application is 
 
 1. Clone the repository to your local machine.
 2. Set up a MySQL database and import the provided SQL schema.
-3. Configure the database connection in the `config.php` file.
+3. Configure the database connection in the `dbConnection.php` file.
 4. Open the application in your web browser.
 
 Feel free to explore the codebase, contribute, or use this project as a foundation for your car rental management system.
