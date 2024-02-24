@@ -1,0 +1,96 @@
+login:
+email id
+password 
+
+user table:
+user id
+user name
+user dob
+user address
+user city
+user country
+user contact
+user email
+user password
+user dateofjoining
+
+CREATE TABLE `crmsdb`.`user` (`userId` INT NOT NULL AUTO_INCREMENT , `userName` VARCHAR(50) NOT NULL , `userDob` DATE NOT NULL , `userAddress` VARCHAR(100) NOT NULL , `userCity` VARCHAR(45) NOT NULL , `userCountry` VARCHAR(45) NOT NULL , `userContact` INT(13) NOT NULL , `userEmail` VARCHAR(45) NOT NULL , `userPassword` VARCHAR(45) NOT NULL , `userDoj` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`userId`)) ENGINE = InnoDB;
+
+ALTER TABLE `user` ADD UNIQUE(`userEmail`, `userPassword`);
+
+INSERT INTO `user` (`userId`, `userName`, `userDob`, `userAddress`, `userCity`, `userCountry`, `userContact`, `userEmail`, `userPassword`, `userDoj`) VALUES (NULL, 'fardin', '2024-01-18', 'baijipura', 'aurangabad', 'india', '1324567894', 'johncena@gmail.com', 'wwe', current_timestamp());
+
+admin table:
+admin id
+admin name
+admin email
+admin password
+
+CREATE TABLE `crmsdb`.`admin` (`adminId` INT NOT NULL AUTO_INCREMENT , `adminName` VARCHAR(45) NOT NULL , `adminEmail` VARCHAR(45) NOT NULL , `adminPassword` VARCHAR(45) NOT NULL , PRIMARY KEY (`adminId`)) ENGINE = InnoDB;
+
+car table
+car id
+car name
+car model year
+car brand
+car seats
+car desc
+car availability
+car rent
+carImg1
+carImg2
+carImg3
+car uploadDate
+
+CREATE TABLE `crmsdb`.`car` (`carId` INT NOT NULL AUTO_INCREMENT , `carName` VARCHAR(45) NOT NULL , `carModelYear` INT NOT NULL , `carBrand` VARCHAR(45) NOT NULL , `carSeats` INT NOT NULL , `carDesc` LONGTEXT NOT NULL , `carAvailibility` VARCHAR(15) NOT NULL , `carRentPerDay` INT NOT NULL , `carUploadDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`carId`)) ENGINE = InnoDB;
+
+ALTER TABLE `car` ADD `carImg1` LONGBLOB NOT NULL AFTER `carRentPerDay`, ADD `carImg2` LONGBLOB NOT NULL AFTER `carImg1`, ADD `carImg3` LONGBLOB NOT NULL AFTER `carImg2`;
+
+brand table:
+brand id
+brand name
+
+CREATE TABLE `crmsdb`.`brand` (`brandId` INT NOT NULL AUTO_INCREMENT , `brandName` VARCHAR(45) NOT NULL , PRIMARY KEY (`brandId`)) ENGINE = InnoDB;
+
+booking table:
+book id
+user id
+car id
+book amount
+book status
+book fromDate
+book toDate
+
+CREATE TABLE `crmsdb`.`booking` (`bookId` INT NOT NULL AUTO_INCREMENT , `userId` INT NOT NULL , `carId` INT NOT NULL , `bookAmount` INT NOT NULL , `bookFromDate` DATE NOT NULL , `bookToDate` DATE NOT NULL , `bookStatus` VARCHAR(45) NOT NULL , PRIMARY KEY (`bookId`)) ENGINE = InnoDB;
+
+testimonail table:
+tid
+username
+tdesc
+
+CREATE TABLE `crmsdb`.`testimonial` (`tId` INT NOT NULL AUTO_INCREMENT , `userName` VARCHAR(50) NOT NULL , `tDesc` LONGTEXT NOT NULL , PRIMARY KEY (`tId`)) ENGINE = InnoDB;
+
+contact table:
+contact id
+Contact email
+contact message
+contactTime
+
+CREATE TABLE `crmsdb`.`contact` (`contactId` INT NOT NULL AUTO_INCREMENT , `contactEmail` VARCHAR(45) NOT NULL , `contactMessage` LONGTEXT NOT NULL , `ccontactTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`contactId`)) ENGINE = InnoDB;
+
+subscribe table:
+subs id
+subs email
+
+CREATE TABLE `crmsdb`.`subscribers` (`subsId` INT NOT NULL AUTO_INCREMENT , `subsEmail` VARCHAR(45) NOT NULL , PRIMARY KEY (`subsId`)) ENGINE = InnoDB;
+
+
+
+admin panel :
+dashboard-show stats : total users,cars,bookings,brands,,subscribers,queries,testimonials
+users
+inquiries
+subscribers
+cars-add new car , remove , edit car details
+bookings
+testimonials
